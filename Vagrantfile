@@ -23,14 +23,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         mount_options: ["dmode=775,fmode=664"]
 
     # Provision docker
-    config.vm.provision "docker" do |d|
+config.vm.provision "docker" do |d|
         d.pull_images "mysql:5.5"
-        d.pull_images "gractor/xibo-cms"
+        d.pull_images "xibosignage/xibo-cms:latest-1.7"
         d.run "cms-db",
           image: "mysql:5.5",
           args: "-p 3306:3306 -v /data/db:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root"
         d.run "cms-web",
-          image: "gractor/xibo-cms",
+          image: "xibosignage/xibo-cms:latest-1.7",
           args: "-p 80:80 -e XIBO_DEV_MODE=true -v /data/web:/var/www -v /data/backup:/var/www/backup --link cms-db:mysql"
     end
 
