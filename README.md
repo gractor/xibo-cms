@@ -15,7 +15,8 @@ sudo mkdir /media/xibo-library
 sudo chown www-data:www-data -R /media/xibo-library
 
 
-##locate mcrypt.ini
+locate mcrypt.ini
+
 sudo nano /etc/php5/mods-available/mcrypt.ini
 
 sudo ln -s /etc/php5/mods-available/mcrypt.ini /etc/php5/cli/conf.d/20-mcrypt.ini
