@@ -1,4 +1,4 @@
-# install
+# install (ubuntu 14.04)
 sudo apt-get update
 
 sudo apt-get install apache2 mysql-server php5 php5-curl php5-gd php5-mysql php5-mcrypt
