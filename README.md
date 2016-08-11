@@ -1,25 +1,16 @@
-# Introduction
-Xibo - Digital Signage - http://www.xibo.org.uk
-Copyright (C) 2006-2015 Daniel Garner, James Packer and Alex Harrington
+# install
+sudo apt-get update
+sudo apt-get install apache2 mysql-server php5 php5-curl php5-gd php5-mysql php5-mcrypt
 
-Xibo is free software: you can redistribute it and/or modify
-it under the terms of the GNU Affero General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-any later version. 
+sudo mv xibo-cms-1.7.8/ /var/www/html/xibo-server
+cd /var/www/html/xibo-server
+sudo chown www-data:www-data -R /var/www/html/xibo-server
+sudo mkdir /media/xibo-library
+sudo chown www-data:www-data -R /media/xibo-library
 
-Xibo is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU Affero General Public License for more details.
-
-You should have received a copy of the GNU Affero General Public License
-along with Xibo.  If not, see <http://www.gnu.org/licenses/>. 
-
-# Contributing
-The standard licence for Xibo is the [AGPLv3](LICENSE). For more information please see [CONTRIBUTING.md](CONTRIBUTING.md).
-
-# Repository
-This folder contains the Xibo CMS application.
-
-# Vagrant
-A VagrantFile is included to ease set up and configuration of a development environment. The VagrantFile expects a "library" folder to exist one level up the folder tree to be used as the location of the CMS library.
+##locate mcrypt.ini
+sudo nano /etc/php5/mods-available/mcrypt.ini
+sudo ln -s /etc/php5/mods-available/mcrypt.ini /etc/php5/cli/conf.d/20-mcrypt.ini
+sudo ln -s /etc/php5/mods-available/mcrypt.ini /etc/php5/apache2/conf.d/20-mcrypt.ini
+sudo service apache2 restart
+ sudo php5enmod mcrypt
