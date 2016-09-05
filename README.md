@@ -17,7 +17,7 @@ sudo chown www-data:www-data -R /media/xibo-library
 
 locate mcrypt.ini
 
-sudo nano /etc/php5/mods-available/mcrypt.ini
+sudo nano /etc/php5/mods-available/mcrypt.ini  
 extension=/usr/lib/php5/20131226/mcrypt.so
 
 sudo ln -s /etc/php5/mods-available/mcrypt.ini /etc/php5/cli/conf.d/20-mcrypt.ini
@@ -28,3 +28,4 @@ sudo service apache2 restart
 
  sudo php5enmod mcrypt
  
+ 참고 : https://www.youtube.com/watch?v=0HEnIdpJy4M 
